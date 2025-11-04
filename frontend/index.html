@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Mobile footer padding to prevent content overlap */
+        
         @media (max-width: 640px) {
             body {
                 padding-bottom: 80px;
@@ -320,7 +321,7 @@
                 </div>
 
             </div>
- 
+
             <div class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
                 <p>© 2025 Next-scene. All rights reserved.</p>
             </div>
@@ -328,14 +329,14 @@
     </footer>
 
     <script type="module" src="/src/main.jsx"></script>
-    <script> 
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
             const signinBtn = document.getElementById('signin-nav-btn');
             const profileBtn = document.getElementById('user-profile-btn');
             const signinBtnMobile = document.getElementById('signin-nav-btn-mobile');
             const profileBtnMobile = document.getElementById('user-profile-btn-mobile');
             const user = localStorage.getItem('user');
-            
+
             if (user) {
                 // user is signed in and hide the sign-in button
                 if (signinBtn) {
