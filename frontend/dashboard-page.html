@@ -378,16 +378,25 @@
     </footer>
 
     <script>
-        // Simulate user data retrieval from localStorage
+        // Check authentication and redirect if not signed in
         window.onload = function() {
-            const currentUser = localStorage.getItem('currentUser');
-            if (currentUser) {
-                try {
-                    const user = JSON.parse(currentUser);
-                    console.log('Current user:', user);
-                } catch (e) {
-                    console.error('Error parsing user data:', e);
-                }
+            const user = localStorage.getItem('user');
+            
+            // Redirect to sign-in page if user is not signed in
+            if (!user) {
+                window.location.href = 'signin-page.html';
+                return;
+            }
+
+            // Parse and log user data if available
+            try {
+                const userData = JSON.parse(user);
+                console.log('Current user:', userData);
+            } catch (e) {
+                console.error('Error parsing user data:', e);
+                // If data is corrupted, redirect to sign-in
+                window.location.href = 'signin-page.html';
+                return;
             }
 
             // Initialize Pie Chart (Watched vs Unwatched)
