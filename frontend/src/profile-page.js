@@ -6,42 +6,35 @@ document.addEventListener('DOMContentLoaded', () => {
 	
 	if (!userData) {
 		// If no user data, redirect to sign-in page
+		console.log('No user data found, redirecting to sign-in');
 		window.location.href = 'signin-page.html';
 		return;
 	}
 
 	try {
 		const user = JSON.parse(userData);
+		console.log('✅ User is logged in:', user.email || user.fullName || 'User');
 		
-		// Display user information
-		document.getElementById('user-fullName').textContent = user.fullName || 'Not provided';
-		document.getElementById('user-email').textContent = user.email || 'Not provided';
-		document.getElementById('user-id').textContent = user.id || 'Not provided';
+		// Profile page loaded successfully
+		// The profile form will show with default values
 		
-		// Format and display created date
-		if (user.createdAt) {
-			const date = new Date(user.createdAt);
-			const formattedDate = date.toLocaleDateString('en-US', { 
-				year: 'numeric', 
-				month: 'long', 
-				day: 'numeric' 
-			});
-			document.getElementById('user-createdAt').textContent = formattedDate;
-		} else {
-			document.getElementById('user-createdAt').textContent = 'Not available';
-		}
 	} catch (error) {
-		console.error('Error parsing user data:', error);
+		console.error('❌ Error parsing user data:', error);
 		// Redirect to sign-in if data is corrupted
+		localStorage.removeItem('user');
 		window.location.href = 'signin-page.html';
+		return;
 	}
 
 	// Handle sign out button
 	const signOutBtn = document.getElementById('signout-btn');
 	if (signOutBtn) {
 		signOutBtn.addEventListener('click', () => {
+			console.log('🔓 Signing out user...');
+			// Clear user data from localStorage
 			localStorage.removeItem('user');
-			window.location.href = 'index.html';
+			// Redirect to sign-in page
+			window.location.href = 'signin-page.html';
 		});
 	}
 });

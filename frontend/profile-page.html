@@ -1,98 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile - Next-scene</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile & Settings - Next-scene</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 flex flex-col min-h-screen text-gray-900">
-    <!-- Header -->
-	<header class="w-full bg-white shadow-sm border-b border-gray-200">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+
+<body class="bg-gray-50">
+    <!-- Navigation Header -->
+    <nav class="bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <i class="fa-solid fa-film text-gray-800 text-3xl"></i>
-                <a href="index.html" class="text-gray-900 text-lg font-bold">Next-scene</a>
+                <i class="fa-solid fa-film text-gray-900 text-2xl"></i>
+                <a href="index.html" class="font-bold text-gray-900">Next-scene</a>
             </div>
-            <!-- Navigation -->
-			<nav class="hidden md:flex space-x-8 text-sm items-center">
-				<a href="index.html" class="text-gray-900 font-bold">Home</a>
-				<a href="#" class="text-gray-600 hover:text-gray-900 transition">Dashboard</a>
-				<a href="#" class="text-gray-600 hover:text-gray-900 transition">Browse</a>
-				<a href="#" class="text-gray-600 hover:text-gray-900 transition">About us</a>
-			</nav>
-		</div>
-	</header>
+            <div class="hidden md:flex gap-6 items-center">
+                <a href="index.html" class="text-gray-600 hover:text-gray-900 text-sm">Home</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 text-sm">dashboard</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Browse</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 text-sm">about us</a>
+                <input type="text" placeholder="Search movies..." class="border border-gray-300 rounded px-3 py-1 text-sm w-40">
+                <button class="text-gray-400">
+                    <i class="fa-solid fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
 
     <!-- Main Content -->
-	<main class="flex-1 py-12">
-		<div class="max-w-4xl mx-auto px-4">
-			<div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
-                <div class="flex items-center justify-between mb-8">
-                    <h1 class="text-3xl font-bold text-gray-900">Your Profile</h1>
-                    <a href="index.html" class="text-gray-600 hover:text-gray-900 transition">
-                        <i class="fa-solid fa-arrow-left text-xl"></i>
-                    </a>
+    <div class="max-w-4xl mx-auto px-4 py-8">
+        <!-- Page Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-900">Profile & Settings</h1>
+            <p class="text-gray-600 text-sm">Manage your account settings and preferences</p>
+        </div>
+
+        <!-- Profile Information Section -->
+        <div class="bg-white rounded-lg border border-gray-200 p-8 mb-8">
+            <h2 class="text-xl font-bold text-gray-900 mb-6">Profile Information</h2>
+
+            <div class="flex gap-8 mb-8">
+                <!-- Avatar -->
+                <div class="flex flex-col items-center gap-3">
+                    <div class="w-24 h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-user text-white text-3xl"></i>
+                    </div>
+                    <button class="text-sm text-gray-700 border border-gray-300 rounded px-3 py-1 hover:bg-gray-50">Change Avatar</button>
                 </div>
 
-                <!-- User Profile Section -->
-                <div class="space-y-6">
-                    <!-- Profile Icon -->
-                    <div class="flex justify-center mb-8">
-                        <div class="w-32 h-32 rounded-full bg-gray-800 flex items-center justify-center">
-                            <i class="fa-solid fa-user text-white text-5xl"></i>
+                <!-- Form Fields -->
+                <div class="flex-1">
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                            <input type="text" placeholder="your first name.." class="w-full border border-gray-300 rounded px-3 py-2 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                            <input type="text" placeholder="your last name.." class="w-full border border-gray-300 rounded px-3 py-2 text-sm">
                         </div>
                     </div>
 
-                    <!-- User Details -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-gray-50 rounded-lg p-6">
-                            <label class="block text-sm font-medium text-gray-500 mb-2">Full Name</label>
-                            <p id="user-fullName" class="text-lg font-semibold text-gray-900">-</p>
-                        </div>
-
-                        <div class="bg-gray-50 rounded-lg p-6">
-                            <label class="block text-sm font-medium text-gray-500 mb-2">Email Address</label>
-                            <p id="user-email" class="text-lg font-semibold text-gray-900">-</p>
-                        </div>
-
-                        <div class="bg-gray-50 rounded-lg p-6">
-                            <label class="block text-sm font-medium text-gray-500 mb-2">User ID</label>
-                            <p id="user-id" class="text-sm font-mono text-gray-700">-</p>
-                        </div>
-
-                        <div class="bg-gray-50 rounded-lg p-6">
-                            <label class="block text-sm font-medium text-gray-500 mb-2">Member Since</label>
-                            <p id="user-createdAt" class="text-lg font-semibold text-gray-900">-</p>
-                        </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                        <input type="text" placeholder="Your unique username.." class="w-full border border-gray-300 rounded px-3 py-2 text-sm">la
                     </div>
 
-                    <!-- Sign Out Button -->
-                    <div class="mt-8 pt-8 border-t border-gray-200">
-                        <button id="signout-btn" class="w-full md:w-auto bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition font-medium">
-                            Sign Out
-                        </button>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" placeholder="Enter your email" class="w-full border border-gray-300 rounded px-3 py-2 text-sm">
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Bio</label>
+                        <textarea placeholder="Tell us about yourself..." class="w-full border border-gray-300 rounded px-3 py-2 text-sm h-20 resize-none"></textarea>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button class="bg-gray-900 text-white px-6 py-2 rounded text-sm font-medium hover:bg-gray-800">Save Changes</button>
                     </div>
                 </div>
-			</div>
-		</div>
-	</main>
+            </div>
+        </div>
+
+        <!-- Theme Selection -->
+        <div class="bg-white rounded-lg border border-gray-200 p-8 mb-8">
+            <h2 class="text-xl font-bold text-gray-900 mb-6">Theme</h2>
+
+            <div class="flex items-center gap-4">
+                <label class="text-sm font-medium text-gray-700">Select Theme:</label>
+                <select class="border border-gray-300 rounded px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-900">
+                    <option value="light">Light Mode</option>
+                    <option value="dark">Dark Mode</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Account Management Section -->
+        <div class="bg-white rounded-lg border border-gray-200 p-8 mb-8">
+            <h2 class="text-xl font-bold text-gray-900 mb-6">Account Management</h2>
+
+            <!-- Change Password -->
+            <div class="mb-8 pb-8 border-b border-gray-200">
+                <h3 class="text-sm font-semibold text-gray-900 mb-4">Change Password</h3>
+                <div class="space-y-3">
+                    <div>
+                        <label class="block text-sm text-gray-700 mb-1">Current Password</label>
+                        <input type="password" class="w-full border border-gray-300 rounded px-3 py-2 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-700 mb-1">New Password</label>
+                        <input type="password" class="w-full border border-gray-300 rounded px-3 py-2 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-700 mb-1">Confirm New Password</label>
+                        <input type="password" class="w-full border border-gray-300 rounded px-3 py-2 text-sm">
+                    </div>
+                </div>
+                <div class="mt-4 flex justify-end">
+                    <button class="bg-gray-900 text-white px-6 py-2 rounded text-sm font-medium hover:bg-gray-800">Update Password</button>
+                </div>
+            </div>
+
+            <!-- Sign Out -->
+            <div class="mb-6 pb-6 border-b border-gray-200 flex justify-between items-center">
+                <div>
+                    <h3 class="text-sm font-medium text-gray-900">Sign Out</h3>
+                    <p class="text-xs text-gray-600">Sign out of your account on this device</p>
+                </div>
+                <button id="signout-btn" class="border border-gray-300 text-gray-900 px-4 py-2 rounded text-sm hover:bg-gray-50">
+                    <i class="fa-solid fa-right-from-bracket mr-2"></i>Sign Out
+                </button>
+            </div>
+
+            <!-- Delete Account -->
+            <div class="flex justify-between items-center">
+                <div>
+                    <h3 class="text-sm font-medium text-gray-900">Delete Account</h3>
+                    <p class="text-xs text-gray-600">Permanently delete your account and all data</p>
+                </div>
+                <button class="bg-gray-900 text-white px-4 py-2 rounded text-sm hover:bg-gray-800">Delete Account</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
-    <footer class="w-full mt-auto bg-gray-900 text-white py-12">
+    <footer class="bg-gray-900 text-white py-12 mt-12">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 sm:grid-cols-4 gap-8 text-sm">
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-8 mb-8">
+
                 <!-- Brand -->
                 <div>
-                    <div class="flex items-center space-x-2 mb-3">
-                        <div class="bg-gray-800 rounded-xl p-4">
-                            <i class="fa-solid fa-film text-white text-3xl"></i>
-                        </div>
-                        <span class="text-white font-bold text-lg">Next-scene</span>
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-film text-white text-3xl"></i>
+                        <a href="index.html" class="text-white text-lg font-bold">Next-scene</a>
                     </div>
                     <p class="text-gray-400 text-xs">Your ultimate destination for movie discovery and management.</p>
                 </div>
@@ -101,8 +167,8 @@
                 <div>
                     <h4 class="text-white font-semibold mb-3">Product</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-150">Features</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-150">API</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-150 text-sm">Features</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-150 text-sm">API</a></li>
                     </ul>
                 </div>
 
@@ -110,37 +176,47 @@
                 <div>
                     <h4 class="text-white font-semibold mb-3">Company</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-150">About</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-150">Blog</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-150">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-150 text-sm">About</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-150 text-sm">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-150 text-sm">Careers</a></li>
                     </ul>
                 </div>
 
                 <!-- Connect -->
                 <div>
                     <h4 class="text-white font-semibold mb-3">Connect</h4>
-                    <div class="flex space-x-4">
+                    <div class="flex gap-4">
+                        <!-- Twitter Icon -->
                         <a href="#" class="text-gray-400 hover:text-white transition duration-150">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 6c-0.63 0.28-1.31 0.47-2.01 0.54 0.72-0.43 1.28-1.11 1.54-1.92-0.68 0.4-1.44 0.69-2.24 0.85-0.64-0.68-1.55-1.1-2.56-1.1-1.93 0-3.5 1.57-3.5 3.5 0 0.27 0.03 0.54 0.09 0.8-2.91-0.15-5.49-1.54-7.22-3.66-0.3 0.52-0.47 1.13-0.47 1.77 0 1.22 0.62 2.3 1.57 2.92-0.58-0.02-1.12-0.18-1.59-0.44v0.04c0 1.7 1.21 3.12 2.8 3.44-0.29 0.08-0.59 0.12-0.9 0.12-0.22 0-0.44-0.02-0.65-0.06 0.44 1.39 1.73 2.41 3.26 2.44-1.2 0.94-2.72 1.5-4.38 1.5-0.29 0-0.57-0.02-0.85-0.06 1.55 0.99 3.38 1.57 5.37 1.57 6.45 0 9.98-5.33 9.98-9.98 0-0.15 0-0.3-0.01-0.45 0.69-0.5 1.28-1.13 1.76-1.85z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M22.46 6c-0.63 0.28-1.31 0.47-2.01 0.54 0.72-0.43 1.28-1.11 1.54-1.92-0.68 0.4-1.44 0.69-2.24 0.85-0.64-0.68-1.55-1.1-2.56-1.1-1.93 0-3.5 1.57-3.5 3.5 0 0.27 0.03 0.54 0.09 0.8-2.91-0.15-5.49-1.54-7.22-3.66-0.3 0.52-0.47 1.13-0.47 1.77 0 1.22 0.62 2.3 1.57 2.92-0.58-0.02-1.12-0.18-1.59-0.44v0.04c0 1.7 1.21 3.12 2.8 3.44-0.29 0.08-0.59 0.12-0.9 0.12-0.22 0-0.44-0.02-0.65-0.06 0.44 1.39 1.73 2.41 3.26 2.44-1.2 0.94-2.72 1.5-4.38 1.5-0.29 0-0.57-0.02-0.85-0.06 1.55 0.99 3.38 1.57 5.37 1.57 6.45 0 9.98-5.33 9.98-9.98 0-0.15 0-0.3-0.01-0.45 0.69-0.5 1.28-1.13 1.76-1.85z"/>
+                            </svg>
                         </a>
+                        <!-- Facebook Icon -->
                         <a href="#" class="text-gray-400 hover:text-white transition duration-150">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.75 0 3.09 0.01 4.16 0.06 0.92 0.04 1.48 0.2 2.05 0.41 0.59 0.21 1.05 0.49 1.51 0.95 0.46 0.46 0.74 0.92 0.95 1.51 0.21 0.57 0.37 1.13 0.41 2.05 0.05 1.07 0.06 1.41 0.06 4.16s-0.01 3.09-0.06 4.16c-0.04 0.92-0.2 1.48-0.41 2.05-0.21 0.59-0.49 1.05-0.95 1.51-0.46 0.46-0.74 0.92-0.95 1.51-0.21 0.57-0.37 1.13-0.41 2.05-0.05 1.07-0.06 1.41-0.06 4.16s0.01-3.09 0.06-4.16c0.04-0.92 0.2-1.48 0.41-2.05 0.21-0.59 0.49-1.05 0.95-1.51 0.46-0.46 0.92-0.74 1.51-0.95 0.57-0.21 1.13-0.37 2.05-0.41 1.07-0.05 1.41-0.06 4.16-0.06zm0 2.25c-2.48 0-2.77 0.01-3.75 0.06-0.89 0.04-1.37 0.19-1.74 0.34-0.47 0.17-0.84 0.38-1.22 0.76-0.38 0.38-0.59 0.75-0.76 1.22-0.15 0.37-0.3 0.85-0.34 1.74-0.05 0.98-0.06 1.27-0.06 3.75s0.01 2.77 0.06 3.75c0.04 0.89 0.19 1.37 0.34 1.74 0.17 0.47 0.38 0.84 0.76 1.22 0.38 0.38 0.75 0.59 1.22 0.76 0.37 0.15 0.85 0.3 1.74 0.34 0.98 0.05 1.27 0.06 3.75 0.06s2.77-0.01 3.75-0.06c0.89-0.04 1.37-0.19 1.74-0.34 0.47-0.17 0.84-0.38 1.22-0.76 0.38-0.38 0.75-0.59 0.76-1.22 0.15-0.37 0.3-0.85 0.34-1.74 0.05-0.98 0.06-1.27 0.06-3.75s-0.01-2.77-0.06-3.75c-0.04-0.89-0.19-1.37-0.34-1.74-0.17-0.47-0.38-0.84-1.22-0.76-0.38-0.38-0.75-0.59-1.22-0.76-0.37-0.15-0.85-0.3-1.74-0.34-0.98-0.05-1.27-0.06-3.75-0.06zM12 7.75c2.35 0 4.25 1.9 4.25 4.25s-1.9 4.25-4.25 4.25-4.25-1.9-4.25-4.25 1.9-4.25 4.25-4.25zM12 9.75c-1.24 0-2.25 1.01-2.25 2.25s1.01 2.25 2.25 2.25 2.25-1.01 2.25-2.25-1.01-2.25-2.25-2.25zM17.5 7a0.5 0.5 0 1 0 0 1 0.5 0.5 0 0 0 0-1z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.01c-5.52 0-10 4.49-10 10s4.48 10 10 10 10-4.49 10-10-4.48-10-10-10zm2 10h-2v7h-3v-7h-2v-3h2v-2c0-2.3 1.1-3 3-3h3v3h-3c-0.5 0-1 0.5-1 1v2h4l-1 3z"/>
+                            </svg>
                         </a>
+                        <!-- Instagram Icon -->
                         <a href="#" class="text-gray-400 hover:text-white transition duration-150">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.01c-5.52 0-10 4.49-10 10s4.48 10 10 10 10-4.49 10-10-4.48-10-10-10zm2 10h-2v7h-3v-7h-2v-3h2v-2c0-2.3 1.1-3 3-3h3v3h-3c-0.5 0-1 0.5-1 1v2h4l-1 3z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2c2.75 0 3.09 0.01 4.16 0.06 0.92 0.04 1.48 0.2 2.05 0.41 0.59 0.21 1.05 0.49 1.51 0.95 0.46 0.46 0.74 0.92 0.95 1.51 0.21 0.57 0.37 1.13 0.41 2.05 0.05 1.07 0.06 1.41 0.06 4.16s-0.01 3.09-0.06 4.16c-0.04 0.92-0.2 1.48-0.41 2.05-0.21 0.59-0.49 1.05-0.95 1.51-0.46 0.46-0.92 0.74-1.51 0.95-0.57 0.21-1.13 0.37-2.05 0.41-1.07 0.05-1.41 0.06-4.16 0.06s-3.09-0.01-4.16-0.06c-0.92-0.04-1.48-0.2-2.05-0.41-0.59-0.21-1.05-0.49-1.51-0.95-0.46-0.46-0.74-0.92-0.95-1.51-0.21-0.57-0.37-1.13-0.41-2.05-0.05-1.07-0.06-1.41-0.06-4.16s0.01-3.09 0.06-4.16c0.04-0.92 0.2-1.48 0.41-2.05 0.21-0.59 0.49-1.05 0.95-1.51 0.46-0.46 0.92-0.74 1.51-0.95 0.57-0.21 1.13-0.37 2.05-0.41 1.07-0.05 1.41-0.06 4.16-0.06zm0 2.25c-2.48 0-2.77 0.01-3.75 0.06-0.89 0.04-1.37 0.19-1.74 0.34-0.47 0.17-0.84 0.38-1.22 0.76-0.38 0.38-0.59 0.75-0.76 1.22-0.15 0.37-0.3 0.85-0.34 1.74-0.05 0.98-0.06 1.27-0.06 3.75s0.01 2.77 0.06 3.75c0.04 0.89 0.19 1.37 0.34 1.74 0.17 0.47 0.38 0.84 0.76 1.22 0.38 0.38 0.75 0.59 1.22 0.76 0.37 0.15 0.85 0.3 1.74 0.34 0.98 0.05 1.27 0.06 3.75 0.06s2.77-0.01 3.75-0.06c0.89-0.04 1.37-0.19 1.74-0.34 0.47-0.17 0.84-0.38 1.22-0.76 0.38-0.38 0.59-0.75 0.76-1.22 0.15-0.37 0.3-0.85 0.34-1.74 0.05-0.98 0.06-1.27 0.06-3.75s-0.01-2.77-0.06-3.75c-0.04-0.89-0.19-1.37-0.34-1.74-0.17-0.47-0.38-0.84-0.76-1.22-0.38-0.38-0.75-0.59-1.22-0.76-0.37-0.15-0.85-0.3-1.74-0.34-0.98-0.05-1.27-0.06-3.75-0.06zM12 7.75c2.35 0 4.25 1.9 4.25 4.25s-1.9 4.25-4.25 4.25-4.25-1.9-4.25-4.25 1.9-4.25 4.25-4.25zM12 9.75c-1.24 0-2.25 1.01-2.25 2.25s1.01 2.25 2.25 2.25 2.25-1.01 2.25-2.25-1.01-2.25-2.25-2.25zM17.5 7a0.5 0.5 0 1 0 0 1 0.5 0.5 0 0 0 0-1z"/>
+                            </svg>
                         </a>
                     </div>
                 </div>
+
             </div>
 
             <!-- Copyright -->
-            <div class="border-t border-gray-800 pt-8 mt-8 text-center text-gray-400 text-sm">
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
                 <p>© 2025 Next-scene. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    
+
     <script type="module" src="/src/profile-page.js"></script>
 </body>
-</html>
 
+</html>
