@@ -28,9 +28,10 @@
                 <a href="#" class="text-gray-700 hover:text-black">Dashboard</a>
                 <a href="#" class="text-gray-700 hover:text-black">Browse</a>
                 <a href="#" class="text-gray-700 hover:text-black">About us</a>
+                <a href="signin-page.html" id="signin-nav-btn" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800">Sign In</a>
             </nav>
 
-            <!-- Search Icon -->
+            <!-- Search Icon and User Profile -->
             <div class="flex items-center gap-4">
                 <input type="text" placeholder="Search movies..." class="hidden md:block px-4 py-2 bg-gray-100 rounded text-sm">
                 <button class="text-gray-700">
@@ -38,6 +39,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                 </button>
+                <a href="profile-page.html" id="user-profile-btn" class="hidden w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition">
+                    <i class="fa-solid fa-user text-white text-sm"></i>
+                </a>
             </div>
         </div>
     </header>
@@ -260,8 +264,7 @@
                 </div>
 
             </div>
-
-            <!-- Copyright -->
+ 
             <div class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
                 <p>© 2025 Next-scene. All rights reserved.</p>
             </div>
@@ -269,6 +272,31 @@
     </footer>
 
     <script type="module" src="/src/main.jsx"></script>
+    <script> 
+        document.addEventListener('DOMContentLoaded', () => {
+            const signinBtn = document.getElementById('signin-nav-btn');
+            const profileBtn = document.getElementById('user-profile-btn');
+            const user = localStorage.getItem('user');
+            
+            if (user) {
+                // user is signed in and hide the sign-in button
+                if (signinBtn) {
+                    signinBtn.style.display = 'none';
+                }
+                if (profileBtn) {
+                    profileBtn.classList.remove('hidden');
+                }
+            } else {
+                // user is not signed in and display the sign-in button
+                if (signinBtn) {
+                    signinBtn.style.display = 'block';
+                }
+                if (profileBtn) {
+                    profileBtn.classList.add('hidden');
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
