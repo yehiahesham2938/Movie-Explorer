@@ -5,6 +5,7 @@ export default {
     "./signup-page.html",
     "./signin-page.html",
     "./dashboard-page.html",
+    "./form-page.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
