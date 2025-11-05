@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
             font-family: 'Inter', sans-serif;
         }
         /* Mobile footer padding to prevent content overlap */
+        
         @media (max-width: 640px) {
             body {
                 padding-bottom: 80px;
@@ -22,6 +24,7 @@
         }
     </style>
 </head>
+
 <body class="bg-gray-50 text-gray-900">
 
     <!-- Desktop Header (sm:flex) -->
@@ -37,7 +40,7 @@
             <nav class="flex gap-8 items-center">
                 <a href="index.html" class="text-gray-700 hover:text-black">Home</a>
                 <a href="dashboard-page.html" class="text-black font-semibold">dashboard</a>
-                <a href="#" class="text-gray-700 hover:text-black">Browse</a>
+                <a href="Browse.html" class="text-gray-700 hover:text-black">Browse</a>
                 <a href="#" class="text-gray-700 hover:text-black">About us</a>
             </nav>
 
@@ -65,7 +68,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
- 
+
             <h1 class="text-lg font-semibold text-gray-900">Dashboard</h1>
 
             <!-- Avatar (Link to Profile) -->
@@ -77,7 +80,7 @@
 
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 py-6 sm:py-8 mt-16 sm:mt-0">
-        
+
         <!-- Stats Section -->
         <div class="mb-8">
             <!-- Mobile Title -->
@@ -138,7 +141,7 @@
                 </div>
             </div>
         </div>
- 
+
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
             <!-- Watched vs Unwatched Pie Chart bmock data -->
             <div class="bg-white rounded-lg shadow-sm p-6">
@@ -373,7 +376,7 @@
                     </div>
                 </div>
             </div>
- 
+
             <div class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
                 <p>© 2025 Next-scene. All rights reserved.</p>
             </div>
@@ -384,7 +387,7 @@
         // Check authentication and redirect if not signed in
         window.onload = function() {
             const user = localStorage.getItem('user');
-            
+
             // Redirect to sign-in page if user is not signed in
             if (!user) {
                 window.location.href = 'signin-page.html';
@@ -412,7 +415,7 @@
                         data: [76, 24],
                         backgroundColor: [
                             '#1f2937', // Dark gray (almost black)
-                            '#d1d5db'  // Light gray
+                            '#d1d5db' // Light gray
                         ],
                         borderWidth: 0
                     }]
@@ -474,5 +477,5 @@
         };
     </script>
 </body>
-</html>
 
+</html>
