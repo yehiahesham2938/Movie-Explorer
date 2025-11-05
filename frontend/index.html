@@ -56,12 +56,16 @@
         </div>
     </header>
 
-    <!-- Mobile Header -->
+    <!-- Mobile Header (sm:hidden) -->
     <header class="sm:hidden fixed top-0 left-0 right-0 bg-white border-b border-gray-200 shadow-sm z-50">
-        <div class="flex justify-center items-center px-4 py-3">
-            <a href="signin-page.html" id="signin-nav-btn-mobile" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800 transition">Sign In</a>
-            <a href="profile-page.html" id="user-profile-btn-mobile" class="hidden absolute right-4 w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center">
-                <i class="fa-solid fa-user text-white text-xs"></i>
+        <div class="flex justify-between items-center px-4 py-3">
+
+            <i class="fa-solid fa-film text-gray-800 text-2xl"></i>
+            <h1 class="text-lg font-semibold text-gray-900">Home</h1>
+
+            <!-- Avatar (Link to Profile) -->
+            <a href="profile-page.html" class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
+                <i class="fa-solid fa-user text-gray-600 text-xs"></i>
             </a>
         </div>
     </header>

@@ -14,18 +14,18 @@
 
 <body class="bg-gray-50">
 
-    <header class="bg-white border-b border-gray-200 max-w-7xl mx-auto px-4 py-4 flex items-center justify-between md:hidden">
-        <button id="mobile-menu-btn" class="md:hidden text-gray-700">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
+    <!-- Mobile Header (sm:hidden) -->
+    <header class="sm:hidden fixed top-0 left-0 right-0 bg-white border-b border-gray-200 shadow-sm z-50">
+        <div class="flex justify-between items-center px-4 py-3">
 
-        <div class="flex items-center gap-2">
             <i class="fa-solid fa-film text-gray-800 text-2xl"></i>
-            <a href="index.html" class="text-gray-900 text-lg font-bold">Next-scene</a>
+            <h1 class="text-lg font-semibold text-gray-900">Browse</h1>
+
+            <!-- Avatar (Link to Profile) -->
+            <a href="profile-page.html" class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
+                <i class="fa-solid fa-user text-gray-600 text-xs"></i>
+            </a>
         </div>
-        <a href="profile-page.html" class="md:hidden w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center">
-            <i class="fa-solid fa-user text-white text-sm"></i>
-        </a>
     </header>
 
     <header class="hidden md:flex bg-white py-4 border-b border-gray-200">
